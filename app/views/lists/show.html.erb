@@ -11,3 +11,21 @@
     turbo_confirm: "Are you sure?"
   } %></li>
 </ul>
+
+<h2>List</h2>
+<% @list.list_items.each do |list| %>
+  <p>
+    <%= list.item %>
+  </p>
+<% end %>
+
+<h2>Add an item:</h2>
+<%= form_with model: [ @list, @list.list_items.build ] do |form| %>
+  <p>
+    <%= form.label :item %><br>
+    <%= form.text_field :item %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
