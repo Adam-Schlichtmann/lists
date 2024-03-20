@@ -1,0 +1,15 @@
+<h1>Lists</h1>
+
+
+<ul>
+  <% if @lists.each do |list| %>
+    <li>
+      <%= link_to list.title, list %>
+    </li>
+  <% end.empty? %>
+    You have no lists.
+  <% end %>
+</ul>
+
+<%= link_to "New List", new_list_path %>
+
