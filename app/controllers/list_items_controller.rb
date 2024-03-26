@@ -6,6 +6,13 @@ class ListItemsController < ApplicationController
     redirect_to list_path(@list)
   end
 
+  def destroy
+    @list = List.find(params[:list_id])
+    @list_item = @list.list_items.find(params[:id])
+    @list_item.destroy
+    redirect_to list_path(@list), status: :see_other
+  end
+
   private
     def list_item_params
       params.require(:list_item).permit(:item, :status)

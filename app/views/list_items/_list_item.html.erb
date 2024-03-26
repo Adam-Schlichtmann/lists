@@ -2,4 +2,11 @@
   <p>
     <%= list_item.item %>
   </p>
+
+  <p>
+    <%= link_to "Destroy Item", [list_item.list, list_item], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+  </p>
 <% end %>
