@@ -1,0 +1,15 @@
+<%= form_with model: [ @list, @list.list_items.build ] do |form| %>
+  <p>
+    <%= form.label :item %><br>
+    <%= form.text_field :item %>
+  </p>
+
+  <p>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

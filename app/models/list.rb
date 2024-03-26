@@ -1,4 +1,6 @@
 class List < ApplicationRecord
+  include Visible
+  
   has_many :list_items
 
   validates :title, presence: true

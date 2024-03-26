@@ -1,11 +1,15 @@
 <h1>Lists</h1>
 
+You have <%= List.public_count %> lists.
+
 
 <ul>
   <% if @lists.each do |list| %>
-    <li>
-      <%= link_to list.title, list %>
-    </li>
+    <% unless list.archived? %>
+      <li>
+        <%= link_to list.title, list %>
+      </li>
+    <% end %>
   <% end.empty? %>
     You have no lists.
   <% end %>

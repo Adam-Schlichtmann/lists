@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_20_200929) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_26_132114) do
   create_table "list_items", force: :cascade do |t|
     t.string "item"
     t.integer "list_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["list_id"], name: "index_list_items_on_list_id"
   end
 
@@ -25,6 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_200929) do
     t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
   end
 
   add_foreign_key "list_items", "lists"
