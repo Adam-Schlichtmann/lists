@@ -1,15 +1,16 @@
+
 <%= form_with model: [ @list, @list.list_items.build ] do |form| %>
-  <p>
-    <%= form.label :item %><br>
-    <%= form.text_field :item %>
-  </p>
+  <div class="my-2">
+    <%= form.label :item, class: "form-label" %>
+    <%= form.text_field :item, class: "form-control  mw-50" %>
+  </div>
 
-  <p>
-    <%= form.label :status %><br>
-    <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
-  </p>
+  <div class="my-2">
+    <%= form.label :status, class: "form-label"%>
+    <%= form.select :status, Visible::VALID_STATUSES, { selected: 'public' }, class: "form-select" %>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="my-2">
+    <%= form.submit "SAVE", class: "btn btn-primary" %>
+  </div>    
 <% end %>

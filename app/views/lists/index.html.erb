@@ -1,19 +1,9 @@
-<h1>Lists</h1>
-
-You have <%= List.public_count %> lists.
-
-
-<ul>
-  <% if @lists.each do |list| %>
-    <% unless list.archived? %>
-      <li>
-        <%= link_to list.title, list %>
-      </li>
-    <% end %>
-  <% end.empty? %>
-    You have no lists.
+<div class="d-flex flex-row justify-content-between mx-3">
+  <h1>Shopping Lists</h1>
+  <%= link_to new_list_path, class: "icon-link icon-link-hover link-primary", style: "--bs-icon-link-transform: scale(1.25);" do %>
+    <i class="bi bi-plus-circle-fill h2"></i>
   <% end %>
-</ul>
+</div>
 
-<%= link_to "New List", new_list_path %>
 
+<%= render @lists %>  

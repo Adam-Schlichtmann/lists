@@ -1,19 +1,6 @@
-<h1><%= @list.title %></h1>
+<%= render @list, :view_page => true %>
 
-<p><%= @list.color %></p>
-
-<p><%= @list.description %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_list_path(@list) %></li>
-  <li><%= link_to "Destroy", list_path(@list), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %></li>
-</ul>
-
-<h2>List</h2>
-<%= render @list.list_items %>
-
-<h2>Add an item:</h2>
-<%= render 'list_items/form' %>
+<div class="d-flex flex-column my-3">
+  <h4>Add an item:</h4>
+  <%= render 'list_items/form' %>
+</div>
