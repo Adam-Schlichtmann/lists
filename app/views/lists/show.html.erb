@@ -1,6 +1,11 @@
+
+<%= link_to lists_path, { class: "icon-link icon-link-hover link-secondary py-3 text-decoration-none", style: "--bs-icon-link-transform: translateX(-.25em);" } do %> 
+  <i class="bi bi-chevron-left h3"></i>
+  <h3>Lists</h3>
+<% end %>
 <%= render @list, :view_page => true %>
 
 <div class="d-flex flex-column my-3">
-  <h4>Add an item:</h4>
+  <h4>Add list item:</h4>
   <%= render 'list_items/form' %>
 </div>

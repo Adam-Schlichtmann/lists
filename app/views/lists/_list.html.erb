@@ -1,10 +1,11 @@
 <% view_page = false if view_page.nil? %>
+<% color_style = "color:##{list.color};" %>
 
 <% unless list.archived? %>
   <div class="card w-100 mb-3">
     <% if view_page %>
       <div class="d-flex flex-row justify-content-between align-items-center card-header">
-        <h2><%= list.title %></h2>
+        <h2 class="mb-0" style=<%= color_style%>><%= list.title %></h2>
         <div>
           <%= link_to edit_list_path(list), class: "icon-link icon-link-hover link-primary pe-3", style: "--bs-icon-link-transform: scale(1.25);" do %> 
             <i class="bi bi-pencil h3"></i>
@@ -20,8 +21,8 @@
     <% else %>
       <%= link_to list, class: "text-decoration-none" do %>
         <div class="d-flex flex-row justify-content-between align-items-center card-header">
-          <h2><%= list.title %></h2>
-          <i class="bi bi-chevron-right h3"></i>
+          <h2 class="mb-0" style=<%= color_style%>><%= list.title %></h2>
+          <i class="bi bi-chevron-right h3 mb-0"></i>
         </div>
       <% end %>
     <% end %>
