@@ -1,10 +1,8 @@
 
-<% unless list_item.archived? %>
-  <div class="d-flex justify-content-between">
-    <p><%= list_item.item %></p>
-    <%= button_to "Destroy Item", [list_item.list, list_item], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                }, class: "btn btn-danger" %>    
-  </div>
-<% end %>
+<div class="d-flex justify-content-between">
+  <p><%= list_item.item %></p>
+  <%= button_to "Destroy Item", [list_item.list, list_item], data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure?"
+              }, class: "btn btn-danger" %>    
+</div>

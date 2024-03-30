@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root "lists#index"
   
   resources :lists do
-    resources :list_items
+    resources :list_items do
+      put :toggle_complete, on: :member
+    end
   end
 end

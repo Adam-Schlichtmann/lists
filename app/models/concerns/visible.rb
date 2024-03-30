@@ -1,19 +1,19 @@
 module Visible
   extend ActiveSupport::Concern
 
-  VALID_STATUSES = ['public', 'private', 'archived']
+  VALID_STATUSES = ['complete', 'incomplete', 'partial']
 
   included do
     validates :status, inclusion: { in: VALID_STATUSES }
   end
 
   class_methods do
-    def public_count
-      where(status: 'public').count
+    def complete_count
+      where(status: 'complete').count
     end
-  end
 
-  def archived?
-    status == 'archived'
+    def incomplete_count
+      where(status: 'incomplete').count
+    end
   end
 end

@@ -13,6 +13,20 @@ class ListItemsController < ApplicationController
     redirect_to list_path(@list), status: :see_other
   end
 
+  def toggle_complete
+    @list = List.find(params[:list_id])
+    @list_item = @list.list_items.find(params[:id])
+    if @list_item.status.eql? 'complete'
+      puts "UPDATING TO INCOMPLETE"
+      @list_item.status = 'incomplete'
+    else
+      puts "UPDATING TO COMPLETE"
+      @list_item.status = 'complete'
+    end
+    @list_item.save
+    redirect_back(fallback_location: root_path)
+  end
+
   private
     def list_item_params
       params.require(:list_item).permit(:item, :status)
