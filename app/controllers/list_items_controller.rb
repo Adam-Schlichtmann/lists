@@ -10,7 +10,7 @@ class ListItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @list_item = @list.list_items.find(params[:id])
     @list_item.destroy
-    redirect_to list_path(@list), status: :see_other
+    redirect_back(fallback_location: root_path)
   end
 
   def toggle_complete
